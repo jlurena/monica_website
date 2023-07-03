@@ -1,0 +1,119 @@
+@import '../../scss/breakpoints';
+@import '../../scss/constants';
+
+@keyframes move-clouds {
+  0% {
+    left: -200px;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: url('../../assets/images/sky.jpg') center center/cover;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.nav-wrapper {
+  width: 100%;
+  position: fixed;
+  max-height: 2rem;
+  top: 0;
+}
+
+.cloud {
+  width: 200px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: move-clouds 20s linear infinite;
+
+  @include desktop {
+    animation: move-clouds 30s linear infinite;
+  }
+
+  z-index: -1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: .5rem;
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  border: solid $content-border-width rgba(#fff, 0.3);
+
+  .circleWrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include tablet {
+      right: 0;
+      top: 0;
+    }
+
+    @include desktop {
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    z-index: -1;
+    inset: -$content-border-width;
+    filter: blur(.5rem);
+    border: inherit;
+    border-color: transparent;
+    background: inherit;
+    background-clip: border-box;
+
+  }
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+
+  .portrait {
+    border: 1px solid #fff;
+    max-width: 50%;
+    height: auto;
+    margin: 4px;
+    border-radius: 50%;
+
+    @include tablet {
+      max-width: 30%;
+    }
+
+    @include desktop {
+      max-width: 50%;
+    }
+  }
+}
+
+.contact-container {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}

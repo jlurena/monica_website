@@ -1,0 +1,128 @@
+@use "sass:math";
+@import '../../scss/breakpoints';
+
+
+// In degrees
+$max-rotation: 25;
+
+// In pixels. Desktop is  * 2
+$min-movement: 10;
+$max-movement: 15;
+$circle-width: 48;
+$circle-height: 52;
+
+@mixin random-movement($i) {
+  opacity: (math.random(4) * 0.2) + 0.2;
+  left: math.random(60) + 20 + vw;
+  top: math.random(50) + 20 + vh;
+  font-size: 16 + math.random(16) + px;
+  animation-name: animate-desktop#{$i};
+  animation-duration: $i * 10 + s;
+  animation-iteration-count: infinite;
+
+  @include desktop {
+    animation-name: animate-desktop#{$i};
+  }
+}
+
+@for $i from 1 through 7 {
+  @keyframes animate#{$i} {
+      25% {
+        transform: rotate(math.random($max-rotation) * (-1) * 1 + deg) translateY((math.random($min-movement)) + px) translateX(math.random($min-movement) + px);
+        opacity: (math.random(10) * 0.1) + 0.3;
+      }
+
+      50% {
+        transform: rotate(math.random($max-rotation) * (-1) * 1 + deg) translateY((math.random($min-movement)) + px) translateX(math.random($min-movement) + px);
+        opacity: (math.random(10) * 0.1) + 0.30;
+      }
+
+      75% {
+        transform: rotate(math.random($max-rotation) * 2 + deg) translateY((math.random($max-movement)) + px) translateX(math.random($max-movement) + px);
+        opacity: (math.random(10) * 0.1) + 0.3;
+      }
+    }
+
+  @keyframes animate-desktop#{$i} {
+      25% {
+        transform: rotate(math.random($max-rotation * 2) * (-1) * 1 + deg) translateY((math.random($min-movement * 2)) + px) translateX(math.random($min-movement * 2) + px);
+        opacity: (math.random(10) * 0.1) + 0.3;
+      }
+
+      50% {
+        transform: rotate(math.random($max-rotation * 2) * (-1) * 1 + deg) translateY((math.random($min-movement * 2)) + px) translateX(math.random($min-movement * 2) + px);
+        opacity: (math.random(10) * 0.1) + 0.30;
+      }
+
+      75% {
+        transform: rotate(math.random($max-rotation * 2) * 2 + deg) translateY((math.random($max-movement * 2)) + px) translateX(math.random($max-movement * 2) + px);
+        opacity: (math.random(10) * 0.1) + 0.3;
+      }
+    }
+}
+
+.container {
+  min-height: ($circle-height * 2) + $max-movement + px;
+  max-width: ($circle-width * 3) + $max-movement + px ;
+  position: relative;
+
+  @include desktop {
+    min-height: ($circle-height * 2 * 2) + $max-movement + px;
+    max-width: ($circle-width * 3 * 2) + $max-movement + px ;
+  }
+}
+
+.row {
+  // position: relative;
+  display: flex;
+  justify-content: center;
+
+  .circle {
+    min-width: $circle-width + px;
+    height: $circle-height + px;
+    border-radius: 50%;
+    filter: blur(10px);
+    margin-right: -.5rem;
+
+    @include desktop {
+      min-width: $circle-width * 2 + px;
+      height: $circle-height * 2 + px;
+    }
+  
+    &:nth-child(1) {
+      @include random-movement(1);
+      
+      background-color: #39CBFA;
+    }
+  
+    &:nth-child(2) {
+      @include random-movement(2);
+
+      background-color: #FAFF0F;
+    }
+  
+    &:nth-child(3) {
+      @include random-movement(3);
+
+      background-color: #E3B5FF;
+    }
+  }
+
+  &:nth-child(2) {
+    justify-content: center;
+    margin-top: -1rem;
+
+    .circle:nth-child(1) {
+      @include random-movement(4);
+
+      background-color: #FFC0ED;
+    }
+  
+    .circle:nth-child(2) {
+      @include random-movement(5);
+
+      background-color: #79F9DAFC;
+    }
+  }
+
+}

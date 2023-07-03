@@ -1,0 +1,31 @@
+@import '../../scss/constants';
+
+.wrapper {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #D14FFF;
+  z-index: 999;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(80% + $content-border-width * 2); // + 2 rem for border of content
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: Yellowtail, cursive;
+  flex-basis: 30%;
+
+  a {
+    font-size: 2.5rem;
+    color: #D14FFF;
+    margin-left: 3rem;
+  }
+}
