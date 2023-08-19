@@ -6,6 +6,7 @@ import BlurredCircles from '../../components/blurred_circles'
 import MonicaPortrait from '../../assets/images/monica-portrait.png'
 import Navbar from '../../components/navbar'
 import PinkButton from '../../components/pink-button'
+import ArrowsDown from '../../components/arrows-down'
 
 function Home (): ReactElement {
   return (
@@ -43,16 +44,31 @@ function Home (): ReactElement {
         />
       ))}
       <div className={styles.content}>
-        <div className={styles.about}>
+        <div className={styles['content-nav']}>
+          <div className={styles.links}>
+            <a href='https://example.com'> Work </a>
+          </div>
+        </div>
+        <div className={styles['about-container']}>
           <img className={styles.portrait} src={MonicaPortrait} alt='Monica Portrait' />
           <div className={styles['contact-container']}>
             <PinkButton>Email</PinkButton>
             <PinkButton>LinkedIn</PinkButton>
           </div>
+          <div className={styles.about}>
+            <p className={styles.title}>About Me</p>
+            <p>
+              Hello, I'm Monica, a passionate emerging UX Designer. Through several engaging user interface projects, I've discovered my true love for crafting seamless design experiences. To me, UX design is an exhilarating journey, allowing me to shape remarkable user interactions and create a harmonious flow that truly resonates.
+            </p>
+          </div>
+          <PinkButton className={styles['resume-button']}>Resume</PinkButton>
         </div>
         <div className={styles.circleWrapper}>
           <BlurredCircles />
         </div>
+      </div>
+      <div className={styles.arrows}>
+        <ArrowsDown />
       </div>
     </div>
   )

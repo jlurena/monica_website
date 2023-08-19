@@ -7,7 +7,6 @@ export default function Navbar (): ReactElement {
       <div className={styles.container}>
         <div className={styles.logo}>Logo</div>
         <div className={styles.menu}>
-          <a href='https://example.com'>About</a>
           <a href='https://example.com'>Work</a>
         </div>
       </div>

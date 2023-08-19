@@ -1,12 +1,18 @@
 @import '../../scss/constants';
+@import '../../scss/breakpoints';
 
 .wrapper {
+  display: none;
   background: #fff;
   width: 100%;
-  display: flex;
   justify-content: center;
   border-bottom: 2px solid #D14FFF;
   z-index: 999;
+
+  @include tablet {
+    display: flex;
+  }
+
 }
 
 .container {

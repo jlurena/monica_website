@@ -1,0 +1,63 @@
+@import '../../scss/breakpoints';
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pulse-lg {
+  0% {
+    transform: scale(1.75);
+  }
+
+  50% {
+    transform: scale(1.95);
+  }
+
+  100% {
+    transform: scale(1.75);
+  }
+}
+
+.wrapper {
+  margin: 1rem 0;
+}
+
+.animated {
+  display: inline-block;
+  animation-name: pulse;
+  transition-property: transform;
+  transition-duration: 1s;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  @include desktop {
+    animation-name: pulse-lg;
+  }
+}
+
+.btn {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 6rem;
+  font-size: 40px;
+  color: rgb(255 255 255 / 60%);
+  transition: background-color .4s ease-in-out;
+
+  &:hover, &:focus {
+    outline: 0;
+    color: #fff;
+    background: rgb(255 255 255 / 10%);
+  }
+}
+
