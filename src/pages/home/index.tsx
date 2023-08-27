@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import styles from './home.module.scss'
+import styles from './index.module.scss'
 import { cloudAssets } from '../../assets/images/clouds'
 import { randomNumberBetween, sampleArray } from '../../lib/utilities'
 import BlurredCircles from '../../components/blurred_circles'
@@ -7,6 +7,7 @@ import MonicaPortrait from '../../assets/images/monica-portrait.png'
 import Navbar from '../../components/navbar'
 import PinkButton from '../../components/pink-button'
 import ArrowsDown from '../../components/arrows-down'
+import logo from '../../assets/images/logo.png'
 
 function Home (): ReactElement {
   return (
@@ -44,6 +45,7 @@ function Home (): ReactElement {
         />
       ))}
       <div className={styles.content}>
+        <img src={logo} className={styles.logo} />
         <div className={styles['mobile-nav']}>
           <div className={styles.links}>
             <a href='https://example.com'> Work </a>
