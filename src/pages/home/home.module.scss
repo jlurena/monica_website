@@ -45,7 +45,7 @@ $mobile-nav-height: 10%;
   transform: translateY(-50%);
   animation: move-clouds 20s linear infinite;
 
-  @include desktop {
+  @include lg {
     animation: move-clouds 30s linear infinite;
   }
 
@@ -63,7 +63,7 @@ $mobile-nav-height: 10%;
   border: solid $content-border-width rgba(#fff, 0.3);
   margin-top: $mobile-nav-height; // To push it back down
 
-  @include tablet {
+  @include md {
     height: $desktop-nav-height;
     margin-top: unset;
   }
@@ -73,12 +73,12 @@ $mobile-nav-height: 10%;
     bottom: 0;
     right: 0;
 
-    @include tablet {
+    @include md {
       right: 0;
       top: 0;
     }
 
-    @include desktop {
+    @include lg {
       right: 0;
       top: 0;
     }
@@ -102,7 +102,7 @@ $mobile-nav-height: 10%;
   min-width: 8rem;
   margin-top: 2rem;
 
-  @include tablet {
+  @include md {
     min-width: 8rem;
     margin-top: -.25rem;
   }
@@ -114,7 +114,7 @@ $mobile-nav-height: 10%;
   display: block;
   font-family: Yellowtail, cursive;
 
-  @include tablet {
+  @include md {
     display: none;
   }
 
@@ -147,7 +147,11 @@ $mobile-nav-height: 10%;
     margin: 4px;
     border-radius: 50%;
 
-    @include tablet {
+    @include sm {
+      max-width: 30%;
+    }
+    
+    @include md {
       max-width: 25%;
     }
   }
@@ -158,7 +162,7 @@ $mobile-nav-height: 10%;
   flex-direction: column;
   font-family: 'Libre Caslon Display', serif;
 
-  @include tablet {
+  @include md {
     max-width: 40%;
   }
 
@@ -191,14 +195,14 @@ $mobile-nav-height: 10%;
   width: 60%;
   justify-content: space-between;
 
-  @include tablet {
+  @include md {
     max-width: 20%;
   }
 }
 
 .arrows {
-  @include tablet {
+  @include md {
     position: absolute;
-    bottom: 0;
+    bottom: 2%;
   }
 }

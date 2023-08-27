@@ -9,7 +9,7 @@
   border-bottom: 2px solid #D14FFF;
   z-index: 999;
 
-  @include tablet {
+  @include md {
     display: flex;
   }
 

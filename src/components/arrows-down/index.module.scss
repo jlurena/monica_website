@@ -2,15 +2,15 @@
 
 @keyframes pulse {
   0% {
-    transform: scale(1.2);
+    transform: scale(1.0);
   }
 
   50% {
-    transform: scale(1.4);
+    transform: scale(1.2);
   }
 
   100% {
-    transform: scale(1.2);
+    transform: scale(1.0);
   }
 }
 
@@ -29,7 +29,7 @@
 }
 
 .wrapper {
-  margin: 1rem 0;
+  width: 6rem;
 }
 
 .animated {
@@ -41,23 +41,30 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 
-  @include desktop {
+  @include lg {
     animation-name: pulse-lg;
   }
 }
 
 .btn {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   font-size: 40px;
   color: rgb(255 255 255 / 60%);
   transition: background-color .4s ease-in-out;
+  cursor: pointer;
 
   &:hover, &:focus {
-    outline: 0;
-    color: #fff;
-    background: rgb(255 255 255 / 10%);
+    &::after {
+      content: " ";
+      background: rgb(255 255 255 / 10%);
+      border-radius: 6rem;;
+      height: 6rem;
+      position: absolute;
+      width: 6rem;
+    }
   }
 }
 
