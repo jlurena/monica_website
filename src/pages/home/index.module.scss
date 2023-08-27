@@ -11,7 +11,7 @@
   }
 }
 
-$desktop-nav-height: 80%;
+$desktop-nav-height: 70%;
 $mobile-nav-height: 10%;
 
 .wrapper {
@@ -98,16 +98,6 @@ $mobile-nav-height: 10%;
   }
 }
 
-.resume-button {
-  min-width: 8rem;
-  margin-top: 2rem;
-
-  @include md {
-    min-width: 8rem;
-    margin-top: -.25rem;
-  }
-}
-
 .about-container {
   display: flex;
   align-items: center;
@@ -177,6 +167,6 @@ $mobile-nav-height: 10%;
 .arrows {
   @include md {
     position: absolute;
-    bottom: 2%;
+    bottom: 5%;
   }
 }
