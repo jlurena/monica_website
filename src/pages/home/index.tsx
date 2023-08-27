@@ -8,6 +8,7 @@ import Navbar from '../../components/navbar'
 import PinkButton from '../../components/pink-button'
 import ArrowsDown from '../../components/arrows-down'
 import logo from '../../assets/images/logo.png'
+import MobileNavBar from '../../components/mobile-navbar'
 
 function Home (): ReactElement {
   return (
@@ -45,12 +46,7 @@ function Home (): ReactElement {
         />
       ))}
       <div className={styles.content}>
-        <img src={logo} className={styles.logo} />
-        <div className={styles['mobile-nav']}>
-          <div className={styles.links}>
-            <a href='https://example.com'> Work </a>
-          </div>
-        </div>
+        <MobileNavBar />
         <div className={styles['about-container']}>
           <img className={styles.portrait} src={MonicaPortrait} alt='Monica Portrait' />
           <div className={styles['contact-container']}>
