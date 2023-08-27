@@ -44,7 +44,7 @@ function Home (): ReactElement {
         />
       ))}
       <div className={styles.content}>
-        <div className={styles['content-nav']}>
+        <div className={styles['mobile-nav']}>
           <div className={styles.links}>
             <a href='https://example.com'> Work </a>
           </div>
