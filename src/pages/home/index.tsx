@@ -6,8 +6,11 @@ import BlurredCircles from '../../components/blurred_circles'
 import MonicaPortrait from '../../assets/images/monica-portrait.png'
 import PinkButton from '../../components/pink-button'
 import ArrowsDown from '../../components/arrows-down'
+import { useSwiper } from 'swiper/react'
 
 function Home (): ReactElement {
+  const swiper = useSwiper()
+
   return (
     <div className={styles.wrapper}>
       <div
@@ -57,7 +60,7 @@ function Home (): ReactElement {
         </div>
       </div>
       <div className={styles.arrows}>
-        <ArrowsDown />
+        <ArrowsDown onClick={() => swiper.slideNext()} />
       </div>
     </div>
   )

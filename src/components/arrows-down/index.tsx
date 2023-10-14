@@ -1,9 +1,9 @@
-import type { ReactElement } from 'react'
+import type { ReactElement, HTMLProps } from 'react'
 import styles from './index.module.scss'
 
-export default function ArrowsDown (): ReactElement {
+export default function ArrowsDown ({ onClick, href }: HTMLProps<HTMLAnchorElement>): ReactElement {
   return (
-    <a tabIndex={0} className={styles.btn}>
+    <a tabIndex={0} className={styles.btn} href={href} onClick={onClick}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         height='1em'
