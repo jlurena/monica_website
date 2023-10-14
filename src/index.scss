@@ -1,56 +1,60 @@
-// @import 'https://fonts.googleapis.com/css2?family=Inder&family=Inria+Serif&family=Libre+Caslon+Display&family=Ruge+Boogie&family=Urbanist:wght@500;600&family=Yellowtail&display=swap';
-
-// body {
-//   margin: 0;
-//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-//     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-//     sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-
-// code {
-//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-//     monospace;
-// }
-
-#root {
-  height: 100%;
-}
-html,
-body {
-  position: relative;
-  height: 100%;
-}
+@import 'https://fonts.googleapis.com/css2?family=Inder&family=Inria+Serif&family=Libre+Caslon+Display&family=Ruge+Boogie&family=Urbanist:wght@500;600&family=Yellowtail&display=swap';
 
 body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .swiper {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  position: relative;
+
+  .swiper-wrapper {
+    min-height: 50vh;
+
+    .swiper-slide {
+      background: #ccc;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+          
+      .slide-inner {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
+.swiper-pagination {
+  padding: 0 1rem;
+  width: 10%;
 
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .swiper-pagination-bullet {
+    background-color: rgba($color: #000, $alpha: 0%);
+    fill: pink;
+    color: pink;
+    width: 25px;
+    height: 100%;
+
+    &:focus,
+    &:hover {
+      outline: 1px solid pink;
+      outline-offset: 2px;
+    }
+  }
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.swiper-pagination-bullet-active {
+  fill: #fff;
+  color: #fff;
 }
