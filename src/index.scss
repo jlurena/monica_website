@@ -4,3 +4,11 @@ body {
   padding: 0;
   margin: 0;
 }
+
+// Swiper Variables
+/* stylelint-disable-next-line scss/dollar-variable-pattern */
+:root {
+  --swiper-navigation-color: #545454;
+  --swiper-pagination-right: 10%;
+}
+

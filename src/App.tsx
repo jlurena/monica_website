@@ -63,7 +63,7 @@ function App (): ReactElement {
         <div className='slide-inner'><Home /></div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className='slide-inner'><Portfolio /></div>
+        <Portfolio />
       </SwiperSlide>
       <div
         id='app-pagination'

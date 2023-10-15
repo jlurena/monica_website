@@ -5,6 +5,7 @@ import App from './app'
 // Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 import 'swiper/css/mousewheel'
 
 import './index.scss'
