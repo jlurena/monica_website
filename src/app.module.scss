@@ -1,0 +1,56 @@
+.swiper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  :global(.swiper-wrapper) {
+    min-height: 50vh;
+
+    :global(.swiper-slide) {
+      background: #ccc;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+          
+      .slide-inner {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+}
+
+.swiper-pagination-vertical {
+  width: 12%;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  right: 0;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba($color: #000, $alpha: 0%);
+  fill: rgb(255 192 203 / 40%);
+  color: rgb(255 192 203);
+  width: 25px;
+  height: 100%;
+  padding: .25rem 0;
+
+  &:focus,
+  &:hover {
+    outline: 1px solid pink;
+    outline-offset: 2px;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  fill: rgb(255 192 203);
+}
