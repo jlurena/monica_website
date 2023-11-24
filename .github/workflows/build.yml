@@ -1,25 +1,17 @@
-name: Build and Deploy
+name: Build Website
+
 on:
-  workflow_dispatch:
   push:
-    branches: main
-concurrency:
-  group: pages
-  cancel-in-progress: false
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 jobs:
   build:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    name: Build
+    if:  ${{ github.head_ref == 'main' }}
+    name: Build gh-page
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: refs/heads/${{ github.head_ref }}
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
@@ -29,23 +21,15 @@ jobs:
         run: npm install --omit=dev
       - name: Build
         run: npm run build
-      - name: Configure server filepath
-        run: >
-          mkdir /tmp/source_rm &&
-          mv * /tmp/source_rm &&
-          mv /tmp/source_rm/build public &&
-          mv public/index.html . &&
-          rm -r /tmp/source_rm
-      - name: debug
-        run: ls
-      - name: debug2
-        run: ls public
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "build" || true
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-page
+          force: true
