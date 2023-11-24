@@ -1,6 +1,4 @@
 name: Build and Deploy
-env:
-  PUBLIC_URL: https://monicauxui.design
 on:
   workflow_dispatch:
   push:
@@ -31,13 +29,17 @@ jobs:
         run: npm install --omit=dev
       - name: Build
         run: npm run build
-      - name: Configure server path
+      - name: Configure server filepath
         run: >
           mkdir /tmp/source_rm &&
           mv * /tmp/source_rm &&
           mv /tmp/source_rm/build public &&
-          rm -r /tmp/source_rm && 
-          ls
+          mv public/index.html . &&
+          rm -r /tmp/source_rm
+      - name: debug
+        run: ls
+      - name: debug2
+        run: ls public
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
