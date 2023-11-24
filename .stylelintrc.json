@@ -8,6 +8,7 @@
           "global"
         ]
       }
-    ]
+    ],
+    "selector-class-pattern": "([a-z])+([A-Z0-9])*"
   }
 }
