@@ -2,16 +2,15 @@ name: Build Website
 
 on:
   push:
+    branches:
+      - main
 jobs:
   build:
-    if:  ${{ github.head_ref == 'main' }}
     name: Build gh-page
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          ref: refs/heads/${{ github.head_ref }}
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
@@ -21,6 +20,14 @@ jobs:
         run: npm install --omit=dev
       - name: Build
         run: npm run build
+      - name: Setup File System
+        run: >
+          mv build/ /tmp/ &&
+          rm -rf * &&
+          mv /tmp/build/ . &&
+          mv build/index.html . &&
+          mv build public &&
+          ls 
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
