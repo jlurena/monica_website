@@ -29,16 +29,15 @@ jobs:
           cache: 'npm'
       - name: Install NPM Dependencies
         run: npm install --omit=dev
-      - name: debug
-        run: ls src
       - name: Build
         run: npm run build
-      - name: Configure directory
+      - name: Configure server path
         run: >
-          mkdir to_rm &&
-          mv * to_rm/ &&
-          mv to_rm/build ./public &&
-          rm -rf to_rm
+          mkdir /tmp/source_rm &&
+          mv * /tmp/source_rm &&
+          mv /tmp/source_rm/build public &&
+          rm -r /tmp/source_rm && 
+          ls
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
