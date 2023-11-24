@@ -28,7 +28,9 @@ jobs:
           node-version: 20.2.0
           cache: 'npm'
       - name: Install NPM Dependencies
-        run: npm install --production
+        run: npm install --omit=dev
+      - name: debug
+        run: ls src
       - name: Build
         run: npm run build
       - name: Configure directory
