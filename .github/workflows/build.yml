@@ -1,0 +1,48 @@
+name: Build and Deploy
+env:
+  PUBLIC_URL: https://monicauxui.design
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+concurrency:
+  group: pages
+  cancel-in-progress: false
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.2.0
+          cache: 'npm'
+      - name: Install NPM Dependencies
+        run: npm install --production
+      - name: Build
+        run: npm run build
+      - name: Configure directory
+        run: >
+          mkdir to_rm &&
+          mv * to_rm/ &&
+          mv to_rm/build ./public &&
+          rm -rf to_rm
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
