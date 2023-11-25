@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1bc1fae3.css",
+    "main.js": "/static/js/main.57f6d078.js",
+    "static/media/restaurant-app.png": "/static/media/restaurant-app.f3337f03d2db7db38fed.png",
+    "static/media/monica-portrait.png": "/static/media/monica-portrait.5f901afc96190f02c8e0.png",
+    "static/media/nutrition-app.png": "/static/media/nutrition-app.61686fca25445c95aaed.png",
+    "static/media/sky.jpg": "/static/media/sky.d91a0de2b28ef494036a.jpg",
+    "static/media/cloud3.png": "/static/media/cloud3.313c2df8b3c17ece7b44.png",
+    "static/media/cloud1.png": "/static/media/cloud1.79c5f5f106ca108b84a7.png",
+    "static/media/cloud2.png": "/static/media/cloud2.d04b6dc503362bdcd29c.png",
+    "static/media/cloud8.png": "/static/media/cloud8.a8415800539a175435ff.png",
+    "static/media/cloud5.png": "/static/media/cloud5.72dfa2c9b53684768657.png",
+    "static/media/cloud6.png": "/static/media/cloud6.e8344a7fb2a4984705c3.png",
+    "static/media/cloud0.png": "/static/media/cloud0.90be0a631f4c62736122.png",
+    "static/media/cloud7.png": "/static/media/cloud7.cf89fce6b964ba2f510a.png",
+    "static/media/cloud4.png": "/static/media/cloud4.dde34e874e917fc7133f.png",
+    "static/media/cloud9.png": "/static/media/cloud9.00cfc1093fd403d4a9f3.png",
+    "index.html": "/index.html",
+    "main.1bc1fae3.css.map": "/static/css/main.1bc1fae3.css.map",
+    "main.57f6d078.js.map": "/static/js/main.57f6d078.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1bc1fae3.css",
+    "static/js/main.57f6d078.js"
+  ]
+}
